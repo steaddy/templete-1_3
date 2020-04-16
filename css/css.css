@@ -10,6 +10,10 @@ body {
     font-family: "TT Lakes", sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 a:hover, button:hover {
     cursor: pointer;
 }
@@ -20,6 +24,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+.logo {
+    margin-right: auto;
 }
 
 
@@ -40,6 +48,10 @@ header {
     border-right: 2px;
 }
 
+.service-menu-with-text {
+    display: none;
+}
+
 .user-menu {
     width: 150px;
     display: flex;
@@ -49,6 +61,26 @@ header {
     margin-right: 15px;
     display: none;
 }
+
+.icon-button {
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    outline: none;
+}
+
+.icon-button img {
+    transition: 0.3s;
+}
+
+.icon-button:hover img {
+    transform:  rotate(6deg);
+    filter: drop-shadow(0 0 3px darkred);
+}
+
+
+/*  ----------  Main section  ----------  */
 
 .main {
     background: #F8F8F8;
@@ -81,21 +113,19 @@ header {
     line-height: 24px;
     letter-spacing: -0.2px;
     color: #7E7E82;
-    box-sizing: border-box;
     margin-left: 20px;
-    display: none;
-    border: none;
+    border: 2px solid transparent;
+    padding: 8px 10px 8px 17px;
     background: #F8F8F8;
+    box-sizing: border-box;
+    transition: 0.3s;
 }
 
-.main-menu__button--active {
+.main-menu__button:hover {
     border-radius: 6px;
     background: #FFFFFF;
     border: 2px solid #B8FFEC;
-}
-
-.service-menu-with-text {
-    display: none;
+    transition: 0.3s;
 }
 
 .main-article {
@@ -107,33 +137,50 @@ header {
     flex-direction: column;
 }
 
-.main-article__p {
+.main-article__text {
     margin-left: 16px;
     margin-right: 16px;
 }
 
-.main-article__read-more {
-    display: flex;
-    align-items: center;
+.read-more__link {
+    padding-left: 32px;
+    font-size: 16px;
+    color: #1B1C21;
+    line-height: 24px;
+    font-weight: bold;
 }
 
-.read-more-header {
-    margin-left: 10px;
+.read-more__link::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 25px;
+    background: url('../img/read-more.png') no-repeat;
+    transition: 0.5s;
+}
+
+.read-more__link:hover::before {
+    background-position: 0 5px;
 }
 
 
 
-@media(min-width: 320px) {
+
+
+/*  ----------  Media  ----------  */
+
+
+@media(min-width: 120px) {
 
     .main-article__img {
         width: 320px;
         align-self: center;
     }
 
-    .main-menu button:first-child {
-        display: block;
+    .hamburger-menu {
+        margin: auto 16px;
     }
-
 }
 
 @media(min-width: 768px) {
@@ -142,7 +189,7 @@ header {
         flex-direction: row;
     }
 
-    .main-article__p {
+    .main-article__text {
         margin-left: 24px;
         margin-right: 24px;
     }
@@ -166,27 +213,28 @@ header {
         margin-right: 50px;
     }
 
-    .hamburger-menu--header:after {
+    .logo:before {
         content: '';
         position: absolute;
         height: 30px;
         border: 1px solid #EAEAEA;
-        margin-left: 25px;
-        margin-top: 5px;
+        margin-left: -25px;
+        margin-top: 10px;
         border-right: 2px;
-    }
-
-    .main-menu button {
-        display: block;
     }
 }
 
 @media(min-width: 1120px) {
+    .container {
+        width: 1120px;
+        margin: 0 auto;
+    }
+
     header {
         display: none;
     }
 
-    .main-article__p {
+    .main-article__text {
         margin-left: 34px;
         margin-right: 34px;
     }
